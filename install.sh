@@ -38,7 +38,7 @@ if [ -e $script ];
 	then
 		echo "Script SafeShutdown.py already exists. Doing nothing."
 	else
-		wget "https://raw.githubusercontent.com/Argon40Tech/Super-Rasptendo-Case-Power-Switch/master/SafeShutdown.py"
+		wget "https://github.com/RetroFlag/retroflag-picase/blob/master/SafeShutdown.py"
 fi
 #-----------------------------------------------------------
 
