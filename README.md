@@ -1,5 +1,8 @@
 # retroflag-picase
 RetroFlag Pi-Case Safe Shutdown
+Make sure turn "SAVE SHUTDOWN" switch on PCB to ON.
+
+--------------------
 
 Example for RetroPie:
 1. Make sure internet connected.
