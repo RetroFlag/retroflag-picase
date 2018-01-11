@@ -2,6 +2,7 @@
 RetroFlag Pi-Case Safe Shutdown
 
 Turn switch "SAFE SHUTDOWN" on PCB to ON.
+
 **Important: Make sure your have a strong power adapter and wired connection. Recommand: 5V 2A. **
 --------------------
 
