@@ -1,7 +1,7 @@
 # retroflag-picase
 RetroFlag Pi-Case Safe Shutdown
 
-Make sure switch "SAFE SHUTDOWN" on PCB to ON.
+Turn switch "SAFE SHUTDOWN" on PCB to ON.
 
 --------------------
 
