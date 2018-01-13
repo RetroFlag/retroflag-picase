@@ -1,5 +1,7 @@
 #!/bin/bash
 #Step 1 make /boot writable---------------------------------
+sleep 2s
+
 mount -o remount, rw /boot
 mount -o remount, rw /
 
@@ -12,6 +14,9 @@ if grep -q "enable_uart=1" "$File";
 		echo "enable_uart=1" >> $File
 		echo "UART enabled."
 fi
+
+sleep 2s
+
 if grep -q "^system.power.switch=PIN356ONOFFRESET*" "/recalbox/share/system/recalbox.conf";
 	then
 		echo "PIN356ONOFFRESET configuration already enabled."
@@ -21,10 +26,10 @@ if grep -q "^system.power.switch=PIN356ONOFFRESET*" "/recalbox/share/system/reca
 fi
 #-----------------------------------------------------------
 
-
-
 #Step 3) Download Python script-----------------------------
 mkdir /opt/RetroFlag
+sleep 2s
+
 script=/opt/RetroFlag/SafeShutdown.py
 
 if [ -e $script ];
@@ -34,6 +39,8 @@ if [ -e $script ];
 		wget --no-check-certificate -O  $script "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_SafeShutdown.py"
 fi
 #-----------------------------------------------------------
+
+sleep 2s
 
 #Step 4) Enable Python script to run on start up------------
 DIR=/etc/init.d/S99RetroFlag
