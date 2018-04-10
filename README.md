@@ -10,7 +10,9 @@ Example for RetroPie:
 2. Press F4 enter terminal.
 3. In the terminal, type the one-line command below(Case sensitive):
 
+```bash
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install.sh" | sudo bash
+```
 
 --------------------
 
@@ -20,4 +22,6 @@ Example for RecalBox:
 3. User:root Password:recalboxroot
 4. In the terminal, type the one-line command below(Case sensitive):
 
+```bash
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash
+```
