@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# generic shutdown added by cyperghost
 from gpiozero import Button, LED
 import os 
 from signal import pause
@@ -38,4 +39,3 @@ rebootBtn.when_pressed = reboot
 btn.when_pressed = when_pressed
 btn.when_released = when_released
 pause()
-
