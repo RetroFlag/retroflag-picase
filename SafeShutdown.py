@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# generic shutdown added by cyperghost
 from gpiozero import Button, LED
 import os 
 from signal import pause
@@ -18,17 +17,18 @@ power.on()
 #functions that handle button events
 def when_pressed():
  led.blink(.2,.2)
- output = subprocess.check_output(['./multi_switch.sh', '--es-pid']).strip()
- if output != "0":
+ output = int(subprocess.check_output(['./multi_switch.sh', '--es-pid']))
+ if output:
      os.system("./multi_switch.sh --es-poweroff")
  else:
      os.system("sudo shutdown -h now")
-     
+    
 def when_released():
  led.on()
+
 def reboot():
- output = subprocess.check_output(['./multi_switch.sh', '--es-pid']).strip()
- if output != "0":
+ output = int(subprocess.check_output(['./multi_switch.sh', '--es-pid']))
+ if output:
      os.system("./multi_switch.sh --es-restart")
  else:
      os.system("sudo reboot")
