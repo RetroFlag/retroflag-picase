@@ -60,10 +60,6 @@ def exit_es(exit_command, es_pid):
     wait_for_close(es_pid)
 
 
-# def launch_es():
-#     subprocess.call('emulationstation', shell=True)
-
-
 # functions that handle button events
 def power_switch_off():
     led.blink(.2, .2)
