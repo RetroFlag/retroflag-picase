@@ -1,3 +1,6 @@
+Updated: 2018.5.14
+Metadata in emulationstation will be saved when rebooting and shutting down.
+
 # retroflag-picase
 ## RetroFlag Pi-Case+ Safe Shutdown
 
