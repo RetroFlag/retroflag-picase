@@ -17,9 +17,9 @@ power.on()
 #functions that handle button events
 def when_pressed():
  led.blink(.2,.2)
- output = int(subprocess.check_output(['./multi_switch.sh', '--es-pid']))
+ output = int(subprocess.check_output(['/opt/RetroFlag/multi_switch.sh', '--es-pid']))
  if output:
-     os.system("./multi_switch.sh --es-poweroff")
+     os.system("/opt/RetroFlag/multi_switch.sh --es-poweroff")
  else:
      os.system("sudo shutdown -h now")
     
@@ -27,9 +27,9 @@ def when_released():
  led.on()
 
 def reboot():
- output = int(subprocess.check_output(['./multi_switch.sh', '--es-pid']))
+ output = int(subprocess.check_output(['/opt/RetroFlag/multi_switch.sh', '--es-pid']))
  if output:
-     os.system("./multi_switch.sh --es-restart")
+     os.system("/opt/RetroFlag/multi_switch.sh --es-restart")
  else:
      os.system("sudo reboot")
  
