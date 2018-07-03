@@ -28,7 +28,10 @@ def when_released():
 
 def reboot():
  output = int(subprocess.check_output(['/opt/RetroFlag/multi_switch.sh', '--es-pid']))
- if output:
+ output_rc = int(subprocess.check_output(['/opt/RetroFlag/multi_switch.sh', '--rc-pid']))
+ if output_rc:
+     os.system("/opt/RetroFlag/multi_switch.sh --closeemu")
+ elif output:
      os.system("/opt/RetroFlag/multi_switch.sh --es-restart")
  else:
      os.system("sudo reboot")
