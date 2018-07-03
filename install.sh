@@ -38,7 +38,9 @@ if [ -e $script ];
 	then
 		echo "Script SafeShutdown.py already exists. Doing nothing."
 	else
-		wget "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/SafeShutdown.py"
+		wget "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/SafeShutdown.py"
+		wget "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/multi_switch.sh"
+		chmod +x multi_switch.sh
 fi
 #-----------------------------------------------------------
 
