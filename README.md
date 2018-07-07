@@ -1,6 +1,7 @@
 # retroflag-picase
-RetroFlag Pi-Case Safe Shutdown
+## RetroFlag Pi-Case Safe Shutdown
 
+# Multi Switch Shutdown
 with advanced shutdown features for more natural behaviour:
 1. If you press restart if emulator is currently running, then you will be kicked back to ES main menu
 2. If you press restart in ES main screen, ES will be restartet (no reboot!), good for quick saving metadata or internal saves.
@@ -8,7 +9,7 @@ with advanced shutdown features for more natural behaviour:
 
 All metadata is always saved
 
-# Turn switch "SAFE SHUTDOWN" on PCB to ON.
+Turn switch "SAFE SHUTDOWN" on PCB to ON.
 
 --------------------
 
