@@ -18,7 +18,7 @@ sudo apt-get install -y python3-gpiozero
 
 #Step 4) Download Python script-----------------------------
 cd /opt/
-sudo mkdir RetroFlag
+sudo mkdir -p RetroFlag
 cd /opt/RetroFlag
 script=SafeShutdown.py
 
