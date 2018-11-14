@@ -12,11 +12,24 @@ fi
 sudo apt-get update -y
 #-----------------------------------------------------------
 
-#Step 3) Install gpiozero module----------------------------
+#Step 3) disable UART from retroflag install ---------------
+cd /boot/
+File=config.txt
+if grep -q "^enable_uart=1" "$File";
+	then
+		echo "UART is already enabled. Disabeling now!"
+		echo "Commenting out line - your CPU is not throttled anymore"
+		sed -i -e "s|^enable_uart=1|#enable_uart=1|" $File &> /dev/null
+	else
+		echo "UART is disabled. CPU is working with full speed"
+fi
+#-----------------------------------------------------------
+
+#Step 4) Install gpiozero module----------------------------
 sudo apt-get install -y python3-gpiozero
 #-----------------------------------------------------------
 
-#Step 4) Download Python script-----------------------------
+#Step 5) Download Python script-----------------------------
 cd /opt/
 sudo mkdir RetroFlag
 cd /opt/RetroFlag
@@ -32,7 +45,7 @@ if [ -e $script ];
 fi
 #-----------------------------------------------------------
 
-#Step 5) Enable Python script to run on start up------------
+#Step 6) Enable Python script to run on start up------------
 cd /etc/
 RC=rc.local
 
@@ -45,7 +58,7 @@ if grep -q "sudo python3 \/opt\/RetroFlag\/SafeShutdown.py \&" "$RC";
 fi
 #-----------------------------------------------------------
 
-#Step 6) Reboot to apply changes----------------------------
+#Step 7) Reboot to apply changes----------------------------
 echo "RetroFlag Pi Case installation done. Will now reboot after 3 seconds."
 sleep 3
 sudo reboot
