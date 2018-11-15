@@ -1,8 +1,7 @@
-Updated: 2018.5.14
-Metadata in emulationstation will be saved when rebooting and shutting down.
-
 # retroflag-picase
 RetroFlag Pi-Case Safe Shutdown
+
+![alt text](http://retroflag.com/images/nespi_case+/NESPi-CASE_01.jpg)
 
 Turn switch "SAFE SHUTDOWN" on PCB to ON.
 
