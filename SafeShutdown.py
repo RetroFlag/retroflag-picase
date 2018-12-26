@@ -2,6 +2,7 @@
 from gpiozero import Button, LED
 import os 
 from signal import pause
+import subprocess
 
 powerPin = 3 
 resetPin = 2 
@@ -15,12 +16,22 @@ power.on()
 
 #functions that handle button events
 def when_pressed():
-  led.blink(.2,.2)
-  os.system("sudo killall emulationstation && sleep 5s && sudo shutdown -h now")
+	try:
+		led.blink(.2,.2)
+		subprocess.call("sudo killall emulationstation && sleep 5s && sudo shutdown -h now")
+	except:
+		#assume that emulationstation is dead already (crashed?)
+		led.blink(.2,.2)
+		os.system("sudo shutdown -h now")
+
 def when_released():
-  led.on()
-def reboot(): 
-  os.system("sudo killall emulationstation && sleep 5s && sudo reboot")
+	led.on()
+def reboot():
+	try:
+		subprocess.call("sudo killall emulationstation && sleep 5s && sudo reboot")
+	except:
+		os.system("sudo reboot")
+
   
 btn = Button(powerPin, hold_time=hold)
 rebootBtn = Button(resetPin)
