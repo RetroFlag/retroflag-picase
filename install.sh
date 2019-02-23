@@ -37,7 +37,7 @@ script=SafeShutdown.py
 
 if [ -e $script ];
 	then
-		echo "Script SafeShutdown.py already exists. Overwriting file now!
+		echo "Script SafeShutdown.py already exists. Overwriting file now!"
 		echo "Downloading ..."
 	else
 		echo "Script will be installed now! Downloading ..."
