@@ -37,12 +37,16 @@ script=SafeShutdown.py
 
 if [ -e $script ];
 	then
-		echo "Script SafeShutdown.py already exists. Doing nothing."
+		echo "Script SafeShutdown.py already exists. Overwriting file now!
+		echo "Downloading ..."
 	else
-		wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/SafeShutdown.py"
-		wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/multi_switch.sh"
-		chmod +x multi_switch.sh
+		echo "Script will be installed now! Downloading ..."
 fi
+
+wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/SafeShutdown.py"
+wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/multi_switch.sh"
+chmod +x multi_switch.sh
+
 #-----------------------------------------------------------
 
 #Step 6) Enable Python script to run on start up------------
