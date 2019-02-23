@@ -19,7 +19,7 @@ if grep -q "^enable_uart=1" "$File";
 	then
 		echo "UART is already enabled. Disabeling now!"
 		echo "Commenting out line - your CPU is not throttled anymore"
-		sed -i -e "s|^enable_uart=1|#enable_uart=1|" $File &> /dev/null
+		sed -i -e "s|^enable_uart=1|#enable_uart=1|" "$File" &> /dev/null
 	else
 		echo "UART is disabled. CPU is working with full speed"
 fi
@@ -39,8 +39,8 @@ if [ -e $script ];
 	then
 		echo "Script SafeShutdown.py already exists. Doing nothing."
 	else
-		wget "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/SafeShutdown.py"
-		wget "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/multi_switch.sh"
+		wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/SafeShutdown.py"
+		wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/multi_switch.sh"
 		chmod +x multi_switch.sh
 fi
 #-----------------------------------------------------------
