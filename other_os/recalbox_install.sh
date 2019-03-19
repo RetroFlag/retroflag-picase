@@ -27,7 +27,8 @@ else
 fi
 
 # Configs for Step 3 -- Location of scripts
-inst_dir="/opt/RetroFlag"
+[[ $choice == "r" ]] && inst_dir="/opt/RetroFlag"
+[[ $choice == "r" ]] && inst_dir="/recalbox/share/scripts"
 
 # Configs for Step 4 -- Enable automatic start on boot
 [[ $choice == "r" ]] && autostartscript="/etc/init.d/S99RetroFlag"
