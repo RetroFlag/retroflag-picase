@@ -41,14 +41,14 @@ def ledBlink():
 def reset():
 	while True:
 		GPIO.wait_for_edge(resetPin, GPIO.FALLING)
-    output = int(subprocess.check_output(['/recalbox/share/scripts/recalbox_SafeShutdown.sh', '--espid']))
+                output = int(subprocess.check_output(['/recalbox/share/scripts/recalbox_SafeShutdown.sh', '--espid']))
  		output_rc = int(subprocess.check_output(['/recalbox/share/scripts/recalbox_SafeShutdown.sh', '--rcpid']))
  		if output_rc:
-      os.system("/recalbox/share/scripts/recalbox_SafeShutdown.sh --emukill")
+                	os.system("/recalbox/share/scripts/recalbox_SafeShutdown.sh --emukill")
  		elif output:
-     	os.system("/recalbox/share/scripts/recalbox_SafeShutdown.sh --restart")
+     	        	os.system("/recalbox/share/scripts/recalbox_SafeShutdown.sh --restart")
 		else:
-		  os.system("shutdown -r now")
+			os.system("shutdown -r now")
 
 if __name__ == "__main__":
 	#initialize GPIO settings
