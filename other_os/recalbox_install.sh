@@ -35,9 +35,10 @@ fi
 [[ $choice == "b" ]] && autostartscript="/recalbox/share/system/custom.sh"
 
 # Build global variables
-script="${inst_dir}/recalbox_SafeShutdown.py"
+[[ $choice == "r" ]] && script="${inst_dir}/recalbox_SafeShutdown.py"
+[[ $choice == "b" ]] && script="${inst_dir}/batocera_SafeShutdown.py"
+scriptfile="$(basename $script)"
 
-clear
 #Step 1 make /boot writable---------------------------------
 sleep 2s
 
@@ -79,7 +80,7 @@ if [ -e $script ];
 		echo "Script will be installed now! Downloading ..."
 fi
 
-wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/other_os/recalbox_SafeShutdown.py"
+wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/other_os/$scriptfile"
 wget -N -q --show-progress "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/other_os/recalbox_SafeShutdown.sh"
 chmod +x recalbox_SafeShutdown.sh
 
