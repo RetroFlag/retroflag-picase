@@ -4,10 +4,14 @@
 #Second Step: Ask user which system is used
 if [[ -e recalbox.install ]]; then
     choice="r"
+    echo "----> Installing shutdown system for RECALBOX ...."
     rm -f recalbox.install
+    sleep 2
 elif [[ -e batocera.install ]]; then
     choice="b"
+    echo "----> Installing shutdown system for BATOCERA ...."
     rm -f batocera.install
+    sleep 2
 else
     echo;echo "+------------------------------------------------------+"
     echo "| Which system are you using [B]atocera or [R]ecalbox? |"
@@ -97,6 +101,7 @@ fi
 
 #Step 5) Reboot to apply changes----------------------------
 echo "RetroFlag Pi Case Switch installation done. Will now reboot after 3 seconds."
+rm -f recalbox_install.sh
 sleep 3
 shutdown -r now
 #-----------------------------------------------------------
