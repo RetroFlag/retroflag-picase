@@ -1,15 +1,25 @@
 #!/bin/bash
 #Prestep ask user which system is being used ---------------
-echo;echo "+------------------------------------------------------+"
-echo "| Which system are you using [B]atocera or [R]ecalbox? |"
-read -n 1 -p "+------------------------------------------------------+" choice;
-choice=${choice,,}
-if ! [[ $choice == "b" || $choice == "r" ]]; then
-    clear
-    echo "Please type B to select BATOCERA as target system or"
-    echo "please type R to select RECALBOX as target system."
-    echo "Please restart this script!"
-    exit
+#First Step: Autoinstall... we detect file /recalbox/batocera.install or recalbox.install
+#Second Step: Ask user which system is used
+if [[ -e recalbox.install ]]; then
+    choice="r"
+    rm -f recalbox.install
+elif [[ -e batocera.install ]]; then
+    choice="b"
+    rm -f batocera.install
+else
+    echo;echo "+------------------------------------------------------+"
+    echo "| Which system are you using [B]atocera or [R]ecalbox? |"
+    read -n 1 -p "+------------------------------------------------------+" choice;
+    choice=${choice,,}
+    if ! [[ $choice == "b" || $choice == "r" ]]; then
+        clear
+        echo "Please type B to select BATOCERA as target system or"
+        echo "please type R to select RECALBOX as target system."
+        echo "Please restart this script!"
+        exit
+    fi
 fi
 
 # Configs for Step 3 -- Location of scripts
