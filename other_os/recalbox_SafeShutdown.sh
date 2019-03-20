@@ -31,7 +31,7 @@ function check_emurun() {
 
 # Emulationstation currently running?
 function check_esrun() {
-    local ES_PID="$(pidof -s emulationstation)"
+    local ES_PID="$(pgrep -f -n emulationstation)"
     echo $ES_PID
 }
 
@@ -40,7 +40,7 @@ function check_esrun() {
 case ${1,,} in
     --restart)
         echo "Restarting now ..."
-        /etc/init.d/S31emulationstation start 
+        /etc/init.d/S31emulationstation restart 
     ;;
 
     --espid)
