@@ -49,7 +49,7 @@ def reset():
 		output = int(subprocess.check_output(['./recalbox_SafeShutdown.sh', '--espid']))
  		output_rc = int(subprocess.check_output(['./recalbox_SafeShutdown.sh', '--emupid']))
  		if output_rc:
-			os.system(scrtipDir + "/recalbox_SafeShutdown.sh --emukill")
+			os.system(scriptDir + "/recalbox_SafeShutdown.sh --emukill")
  		elif output:
 			os.system(scriptDir + "/recalbox_SafeShutdown.sh --restart")
 		else:
