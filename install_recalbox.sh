@@ -1,4 +1,5 @@
 #!/bin/bash
+mount -o remount, rw /
 cd /recalbox
 touch recalbox.install
 wget -q https://raw.githubusercontent.com/crcerror/retroflag-picase/master/other_os/recalbox_install.sh
