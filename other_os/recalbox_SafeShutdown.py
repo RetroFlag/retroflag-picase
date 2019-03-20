@@ -1,13 +1,17 @@
 import RPi.GPIO as GPIO
 import os
 import time
+import subprocess
 from multiprocessing import Process
 
 #initialize pins
 powerPin = 3 #pin 5
 ledPin = 14 #TXD
-resetPin = 17 #pin 11
+resetPin = 2 #pin 3
 powerenPin = 4 #pin 5
+
+#get script directory
+scriptDir = os.path.dirname(os.path.realpath(__file__))
 
 #initialize GPIO settings
 def init():
@@ -41,12 +45,12 @@ def ledBlink():
 def reset():
 	while True:
 		GPIO.wait_for_edge(resetPin, GPIO.FALLING)
-		output = int(subprocess.check_output(['/opt/RetroFlag/recalbox_SafeShutdown.sh', '--espid']))
- 		output_rc = int(subprocess.check_output(['/opt/RetroFlag/recalbox_SafeShutdown.sh', '--rcpid']))
+		output = int(subprocess.check_output([scriptDir + '/recalbox_SafeShutdown.sh', '--espid']))
+ 		output_rc = int(subprocess.check_output([scriptDir + '/recalbox_SafeShutdown.sh', '--rcpid']))
  		if output_rc:
-			os.system("/opt/RetroFlag/recalbox_SafeShutdown.sh --emukill")
+			os.system(scriptDir + "/recalbox_SafeShutdown.sh --emukill")
  		elif output:
-			os.system("/opt/RetroFlag/recalbox_SafeShutdown.sh --restart")
+			os.system(scriptDir + "/recalbox_SafeShutdown.sh --restart")
 		else:
 			os.system("shutdown -r now")
 
