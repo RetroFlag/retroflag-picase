@@ -31,7 +31,7 @@ function check_emurun() {
 
 # Emulationstation currently running?
 function check_esrun() {
-    local ES_PID="$(pidof emulationstation)"
+    local ES_PID="$(pidof -s emulationstation)"
     echo $ES_PID
 }
 
