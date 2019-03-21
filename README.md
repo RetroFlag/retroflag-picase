@@ -1,8 +1,11 @@
 # retroflag-picase
+## RetroFlag Pi-Case+ Safe Shutdown
 
-**RetroFlag Pi-Case Safe Shutdown**
+#### Turn switch "SAFE SHUTDOWN" on PCB to ON position.
 
-**Multi Switch Shutdown**
+![Safe Shutdown Switch](http://retroflag.com/images/nespi_case+/safe_shutdown.jpg "Safe Shutdown Switch")
+
+#### **Multi Switch Shutdown**
 with advanced shutdown features for more natural behaviour:
 1. If you press restart if emulator is currently running, then you will be kicked back to ES main menu
 2. If you press restart in ES main screen, ES will be restartet (no reboot!), good for quick saving metadata or internal saves.
@@ -14,12 +17,31 @@ Turn switch "SAFE SHUTDOWN" on PCB to ON.
 
 --------------------
 
-Example for RetroPie:
+#### Example for **RetroPie:**
 1. Make sure internet connected.
 2. Make sure keyboard connected.
 3. Press F4 enter terminal.
-4. In the terminal, type the one-line command below(Case sensitive):
+4. In the terminal, type the one-line command below (case sensitive):
 
 wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/install.sh" | sudo bash
 
 --------------------
+
+#### Example for **RecalBox** and **Batocera:**
+1. Make sure internet connected.
+2. Make sure keyboard connected.
+3. Press F4 first. And then press ALT-F2 enter termial.
+4. User: root Password: recalboxroot
+5. In the terminal, type the one-line command below (case sensitive):
+
+wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash
+
+You can edit the python script and add some parameters to the script calls:
+```
+                  --restart will RESTART EmulationStation only
+                  --kodi will startup KODI Media Center
+                  --emukill to exit any running EMULATORS
+                  --espid to check if EmulationStation is currently active
+                  --emupid to check if an Emulator is running"
+
+```
