@@ -67,9 +67,20 @@ case ${1,,} in
         fi
     ;;
 
+    --kodi)
+        /etc/init.d/S31emulationstation stop
+        /recalbox/scripts/kodilauncher.sh &
+        wait $!
+        exitcode=$?
+        [[ $exitcode -eq 0 ]] && /etc/init.d/S31emulationstation start
+        [[ $exitcode -eq 10 ]] && shutdown -r now
+        [[ $exitcode -eq 11 ]] && shutdown -h now
+    ;;
+
     *)
         echo -e "Please parse parameters to this script! \n
                   --restart will RESTART EmulationStation only
+                  --kodi will startup KODI Media Center
                   --shutdown will SHUTDOWN whole system (not implented now!)
                   --emukill to exit any running EMULATORS
                   --espid to check if EmulationStation is currently active
