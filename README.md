@@ -34,7 +34,11 @@ wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/in
 4. User: root Password: recalboxroot
 5. In the terminal, type the one-line command below (case sensitive):
 
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash
+For Recalbox:
+wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install_recalbox.sh" | bash
+
+For Batocera:
+wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install_batocera.sh" | bash
 
 You can edit the python script and add some parameters to the script calls:
 ```
