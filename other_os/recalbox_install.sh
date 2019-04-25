@@ -1,14 +1,19 @@
 #!/bin/bash
 #Prestep autodetect which system is used -------------------
 
-if [[ -e /recalbox/batocera.version ]]; then
+if [[ -e /recalbox/batocera.version || -e /usr/share/batocera/batocera.version ]]; then
     echo "--> Detected BATOCERA system"
     inst_dir="/recalbox/share/scripts"
     autostartscript="/recalbox/share/system/custom.sh"
-else
-    echo "--> Using default system RECALBOX"
+elif [[ -e /recalbox/recalbox.version ]]; then
+    echo "--> Detected RECALBOX system"
     inst_dir="/opt/RetroFlag"
     autostartscript="/etc/init.d/S99RetroFlag"
+else
+    echo
+    echo "Error!"
+    echo "Could not find a valid system! So nothing changed now ..."
+    exit
 fi
 
 # Build global variables
