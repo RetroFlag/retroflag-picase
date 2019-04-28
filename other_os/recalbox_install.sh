@@ -28,22 +28,16 @@ mount -o remount, rw /
 #Step 2) enable UART and system.power.switch----------------
 sleep 2s
 
-if grep -q "^enable_uart=1" "/boot/config.txt";
-	then
-		echo "UART is already enabled. Disabling now!"
-		echo "Commenting out line - your CPU is not throttled anymore"
-		sed -i -e "s|^enable_uart=1|#enable_uart=1|" "/boot/config.txt" &> /dev/null
-	else
-		echo "UART is disabled. CPU is working with full speed"
-fi
-sleep 2s
-
-if grep -q "^system.power.switch=PIN356ONOFFRESET*" "/recalbox/share/system/recalbox.conf";
-	then
-		echo "PIN356ONOFFRESET configuration already enabled."
-	else
-		echo "system.power.switch=PIN356ONOFFRESET" >> /recalbox/share/system/recalbox.conf
-		echo "PIN356ONOFFRESET configuration enabled."
+if grep -q "^enable_uart=1" "/boot/config.txt"; then
+	echo "UART already enabled... Proceed!"
+elif grep -q "^#enable_uart=1" "/boot/config.txt"; then
+	echo "UART is disabled. Enabling now!"
+	echo "Activating UART - your CPU is could be throttled by this"
+	sed -i -e "s|^#\senable_uart=1|enable_uart=1|" "/boot/config.txt" &> /dev/null
+else
+	echo "UART is disabled."
+	echo "Appending enable_uart=1 to config.txt"
+	echo "enable_uart=1" >> "/boot/config.txt"
 fi
 
 #Step 3) Download Python script-----------------------------
