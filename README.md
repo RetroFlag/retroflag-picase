@@ -1,5 +1,6 @@
 # retroflag-gpi case (gpi case only)
 Turn switch "SAFE SHUTDOWN" to ON.
+
 For RetroPie:
 
 1. Make sure internet connected.
