@@ -28,13 +28,11 @@ def poweroff():
 	while True:
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
                 os.chdir(scriptDir)
- 		output_rc = int(subprocess.check_output(['./recalbox_SafeShutdown.sh', '--emupid']))
- 		if output_rc:
-			os.system(scriptDir + "/recalbox_SafeShutdown.sh --emukill")
-			os.system("/etc/init.d/S31emulationstation stop")
-			time.sleep(5)
-
-		os.system("shutdown -h now")
+ 		output = int(subprocess.check_output(['./recalbox_SafeShutdown.sh', '--espid']))
+ 		if output:
+			os.system(scriptDir + "/recalbox_SafeShutdown.sh --shutdown")
+		else:
+			os.system("shutdown -h now")
 
 #blinks the LED to signal button being pushed
 def ledBlink():
