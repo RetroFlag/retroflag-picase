@@ -55,7 +55,7 @@ case ${1,,} in
         [[ -n $RC_PID ]] && echo $RC_PID || echo 0
     ;;
 
-    --emukill)
+    --emukill|--shutdown)
         RC_PID=$(check_emurun)
         if [[ -n $RC_PID ]]; then
             getcpid $RC_PID
@@ -64,6 +64,13 @@ case ${1,,} in
                 smart_wait ${pidarray[z]}
             done
             unset pidarray
+        fi
+        
+        ES_PID=$(check_esrun)
+        if [[ "$1" == "--shutdown" && -n $ES_PID ]]; then
+            kill $ES_PID
+            smart_wait $ES_PID
+            shutdown -h now
         fi
     ;;
 
@@ -81,7 +88,7 @@ case ${1,,} in
         echo -e "Please parse parameters to this script! \n
                   --restart will RESTART EmulationStation only
                   --kodi will startup KODI Media Center
-                  --shutdown will SHUTDOWN whole system (not implented now!)
+                  --shutdown will SHUTDOWN whole system
                   --emukill to exit any running EMULATORS
                   --espid to check if EmulationStation is currently active
                   --emupid to check if an Emulator is running"
