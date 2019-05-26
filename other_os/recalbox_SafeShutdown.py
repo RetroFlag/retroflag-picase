@@ -27,7 +27,12 @@ def init():
 def poweroff():
 	while True:
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-		os.system("shutdown -h now")
+                os.chdir(scriptDir)
+ 		output = int(subprocess.check_output(['./recalbox_SafeShutdown.sh', '--espid']))
+ 		if output:
+			os.system(scriptDir + "/recalbox_SafeShutdown.sh --shutdown")
+		else:
+			os.system("shutdown -h now")
 
 #blinks the LED to signal button being pushed
 def ledBlink():
