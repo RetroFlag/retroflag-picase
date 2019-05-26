@@ -67,8 +67,10 @@ case ${1,,} in
         fi
         
         ES_PID=$(check_esrun)
-        if [[ "$1" == "--shutdown" && -n $ES_PID ]]; then
-            kill $ES_PID
+        if [[ "${1,,}" == "--shutdown" && -n $ES_PID ]]; then
+            smart_wait $(pgrep -f emulatorlauncher)
+            sleep 2
+            kill $ES_PID         
             smart_wait $ES_PID
             shutdown -h now
         fi
