@@ -18,6 +18,7 @@ local cpids="$(pgrep -P $1)"
 # Get a sleep while process is active in background
 function smart_wait() {
     local PID=$1
+    [[ -z $PID ]] && return 1
     while [[ -e /proc/$PID ]]; do
         sleep 0.25
     done
