@@ -4,7 +4,8 @@
 # Control script to give feedback about state of EmulationStation and
 # active EMULATORS
 # by cyperghost aka crcerror // 18.03.2019
-# 
+# Recalbox / Batocera versions // 04.06.2019
+# Added sigterm level, added second parameter to activate sigterm during smart_wait function
 
 # Get all childpids from calling process
 function getcpid() {
@@ -16,11 +17,16 @@ local cpids="$(pgrep -P $1)"
 }
 
 # Get a sleep while process is active in background
+# if PID is still active then use kill -9 switch
 function smart_wait() {
-    local PID=$1
-    [[ -z $PID ]] && return 1
+    local PID=$2
+    local disablekill9=$1
+    local watchdog=0
+    sleep 1
     while [[ -e /proc/$PID ]]; do
         sleep 0.25
+        ((watchdog++))
+        [[ $disablekill9 -eq 1 ]] && [[ watchdog -gt 12 ]] && kill -9 $PID
     done
 }
 
@@ -40,8 +46,10 @@ function check_esrun() {
 
 case ${1,,} in
     --restart)
-        echo "Restarting now ..."
-        /etc/init.d/S31emulationstation restart 
+        /etc/init.d/S31emulationstation stop
+        ES_PID=$(check_esrun)
+        [[ -z $ES_PID ]] || smart_wait 0 $ES_PID 
+        /etc/init.d/S31emulationstation start
     ;;
 
     --espid)
@@ -62,22 +70,23 @@ case ${1,,} in
             getcpid $RC_PID
             for ((z=${#pidarray[*]}-1; z>-1; z--)); do
                 kill ${pidarray[z]}
-                smart_wait ${pidarray[z]}
+                smart_wait 1 ${pidarray[z]}
             done
             unset pidarray
         fi
-        
         ES_PID=$(check_esrun)
-        if [[ "${1,,}" == "--shutdown" && -n $ES_PID ]]; then
-            smart_wait $(pgrep -f emulatorlauncher)
-            sleep 2
+        if [[ "$1" == "--shutdown" && -n $ES_PID ]]; then
+            [[ -z $RC_PID ]] || smart_wait 1 $RC_PID && sleep 3
             kill $ES_PID         
-            smart_wait $ES_PID
+            smart_wait 0 $ES_PID
             shutdown -h now
         fi
     ;;
 
     --kodi)
+        ES_PID=$(check_esrun)
+        kill $ES_PID
+        smart_wait 0 $ES_PID
         /etc/init.d/S31emulationstation stop
         /recalbox/scripts/kodilauncher.sh &
         wait $!
