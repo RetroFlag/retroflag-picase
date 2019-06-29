@@ -53,7 +53,9 @@ Multi Switch Shutdown by crcerror at here https://github.com/crcerror/retroflag-
 3. Press F4 enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
+```bash
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install.sh" | sudo bash
+```
 
 --------------------
 
@@ -64,4 +66,6 @@ Example for RecalBox:
 4. User: root Password: recalboxroot
 5. In the terminal, type the one-line command below(Case sensitive):
 
+```bash
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash
+```
