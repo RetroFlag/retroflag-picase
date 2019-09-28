@@ -1,7 +1,7 @@
 #!/bin/bash
 # Retroflag Advanced Shutdown Mod by crcerror
 # This is exclusivly for BATOCERA
-# Intended to work for BATOCERA versions 5.23
+# Intended to work for BATOCERA versions 5.24
 #
 # Release Power Button to shutdown your Raspberry
 # Press Reset during ES to reload ES
@@ -11,8 +11,9 @@ version=$(grep -o '^[^ ]*' $HOME/data.version)
 git_url="https://raw.githubusercontent.com/crcerror/retroflag-picase/master/other_os/batocera_safeshutdown.py"
 file_dest="/usr/bin/retroflag_SafeShutdown.py"
 
-#Minimum version of BATOCERA is 5.24 because here batocera-es-swissknife is integrated
-if [[ ${version//[^[:digit:]]/} -le 524 ]]; then
+# Minimum version of BATOCERA is 5.24 because here batocera-es-swissknife is integrated
+# so all versions less then 5.24 will be dropped from further install
+if [[ ${version//[^[:digit:]]/} -lt 524 ]]; then
     echo "Error! Please try annother installer"
     echo "Your current version of Batocera is '$version'"
     echo "You need at least 5.24 ...."
