@@ -47,7 +47,7 @@ def reset():
 	while True:
 		GPIO.wait_for_edge(resetPin, GPIO.FALLING)
 		output = int(subprocess.check_output(['batocera-es-swissknife', '--espid']))
- 		output_rc = int(subprocess.check_output(['batocera-es-swissknife', '--rcpid']))
+ 		output_rc = int(subprocess.check_output(['batocera-es-swissknife', '--emupid']))
  		if output_rc:
 			os.system("batocera-es-swissknife --emukill")
  		elif output:
