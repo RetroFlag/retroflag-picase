@@ -11,10 +11,11 @@ version=$(grep -o '^[^ ]*' $HOME/data.version)
 git_url="https://raw.githubusercontent.com/crcerror/retroflag-picase/master/other_os/batocera_safeshutdown.py"
 file_dest="/usr/bin/retroflag_SafeShutdown.py"
 
-if [[ ${version//[^[:digit:]]/} -lt 523 ]]; then
+#Minimum version of BATOCERA is 5.24 because here batocera-es-swissknife is integrated
+if [[ ${version//[^[:digit:]]/} -le 524 ]]; then
     echo "Error! Please try annother installer"
     echo "Your current version of Batocera is '$version'"
-    echo "You need at least 5.23 ...."
+    echo "You need at least 5.24 ...."
     exit
 fi 
 
