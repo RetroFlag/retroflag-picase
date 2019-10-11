@@ -34,10 +34,10 @@ Turn switch "SAFE SHUTDOWN" on PCB to ON.
 4. User: root Password: recalboxroot
 5. In the terminal, type the one-line command below (case sensitive):
 
-For Recalbox:
+For Recalbox:\
 **`wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/install_recalbox.sh" | bash`**
 
-For Batocera:
+For Batocera:\
 **`wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/install_batocera.sh" | bash`**
 
 You can edit the python script and add some parameters to the script calls:
