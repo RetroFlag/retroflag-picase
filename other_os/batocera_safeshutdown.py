@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import RPi.GPIO as GPIO
 import os
 import time
@@ -6,19 +9,19 @@ from multiprocessing import Process
 
 #initialize pins
 powerPin = 3 #pin 5
-ledPin = 14 #TXD
+ledPin = 14 #TXD - pin 8
 resetPin = 2 #pin 3
-powerenPin = 4 #pin 5
+powerenPin = 4 #pin 7
 
 #initialize GPIO settings
 def init():
+	GPIO.setwarnings(False)
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	GPIO.setup(resetPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	GPIO.setup(ledPin, GPIO.OUT)
 	GPIO.setup(powerenPin, GPIO.OUT)
 	GPIO.output(powerenPin, GPIO.HIGH)
-	GPIO.setwarnings(False)
 
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
