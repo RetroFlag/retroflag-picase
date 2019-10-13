@@ -30,6 +30,11 @@ wget -q --show-progress "$git_url" -O "$file_dest"
 sleep 2
 
 echo
+echo "Adding -x flag to make script excutable"
+chmod +x "$file_dest"
+sleep 2
+
+echo
 echo "Activating UART ... now"
 mount -o remount, rw /boot
 batocera-settings /boot/config.txt activate enable_uart
