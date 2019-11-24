@@ -24,6 +24,17 @@ echo "Welcome to the Safe Shutdown installer..."
 echo "Batocera '$version' detected..."
 sleep 2
 
+if [[ ${version//[^[:digit:]]/} -gt 524 ]]; then
+    echo "Activate RETROFLAG in batocera.conf"
+    batocera-settings set system.power.switch RETROFLAG_ADV
+    sleep 2
+    echo; echo
+    echo "Rebooting in 5 seconds...."
+    sleep 5
+    shutdown -r now
+    exit
+fi
+
 echo
 echo "Downloading script now!"
 wget -q --show-progress "$git_url" -O "$file_dest"
