@@ -26,7 +26,7 @@ cd /opt/
 mkdir RetroFlag
 cd RetroFlag
 script=SafeShutdown.py
-wget --no-check-certificate -O  $script "$basewebsite/gpi/master/SafeShutdown_gpi.py"
+wget --no-check-certificate "$basewebsite/gpi/master/SafeShutdown.py"
 chmod +x SafeShutdown.py
 wget --no-check-certificate "$basewebsite/master/multi_switch.sh"
 chmod +x multi_switch.sh
