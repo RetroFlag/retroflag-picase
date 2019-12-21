@@ -1,5 +1,15 @@
 # retroflag-picase
-## RetroFlag Pi-Case+ Safe Shutdown
+
+**Section 1**\
+Installers for NesPi+, MegaPi, SuperPi cases\
+Support for RetroPie, RecalBox and BATOCERA
+
+**Section 2**\
+Installeres for the GPi case\
+Support for RetroPie and BATOCERA
+
+
+## Section 1. RetroFlag Pi-Case+ Safe Shutdown
 
 #### Turn switch "SAFE SHUTDOWN" on PCB to ON position.
 
@@ -49,3 +59,37 @@ You can edit the python script and add some parameters to the script calls:
                   --emupid to check if an Emulator is running"
 
 ```
+
+## Section 2. RetroFlag GPi-Case Safe Shutdown
+
+#### Turn switch "SAFE SHUTDOWN" on PCB to ON position.
+
+![](http://retroflag.com/images/gpi-case/safe_shutdown.png)
+
+#### **Multi Switch Shutdown**
+with advanced shutdown features for more natural behaviour:
+1. If you press power-off then Raspberry will shutdown and always save metadata even if you are in an ingame session
+
+All metadata is always saved
+
+
+--------------------
+
+#### Example for **RetroPie:**
+1. Make sure internet connected.
+2. Make sure keyboard connected.
+3. Press F4 enter terminal.
+4. In the terminal, type the one-line command below (case sensitive):
+
+**`wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/install_gpi.sh" | sudo bash`**
+
+--------------------
+
+#### Example for **Batocera**
+1. Make sure internet connected.
+2. Make sure keyboard or SSH connected.
+3. User: root Password: linux
+4. In the terminal, type the one-line command below (case sensitive):
+
+**`wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/install_gpi_batocera.sh" | bash`**
+
