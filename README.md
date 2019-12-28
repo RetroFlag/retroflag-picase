@@ -65,3 +65,8 @@ Example for RecalBox:
 5. In the terminal, type the one-line command below(Case sensitive):
 
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash
+
+
+# Uninstallation
+
+wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/uninstall.sh" | sudo bash
