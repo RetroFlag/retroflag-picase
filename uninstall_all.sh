@@ -8,8 +8,8 @@ readonly BOOTFILE=/boot/config.txt
 readonly SCRIPTDIR=/opt/RetroFlag
 
 echo "Try to delete dir: $SCRIPTDIR"
-if [[ -d "$SCRIPTDIR ]]; then
-   rm -rf "$SCRIPTDIR
+if [[ -d "$SCRIPTDIR" ]]; then
+   rm -rf "$SCRIPTDIR"
    [[ $? -eq 0 ]] && echo "'$SCRIPTDIR': removed sucessfull!" || echo "'$SCRIPTDIR': removal failed!"
 else
    echo "Can't find directory '$SCRIPTDIR'"
@@ -43,6 +43,6 @@ if grep -q "enable_uart=1" "$BOOTFILE"; then
     sed -i -e "s|^\senable_uart=1|#enable_uart=1|" "$BOOTFILE" &> /dev/null
     [[ $? -eq 0 ]] && echo "UART disabled" || echo "Can't disable UART"
 else
-    echo "UART seems to be disabled now!
+    echo "UART seems to be disabled now!"
     echo "'$BOOTFILE':Please check manually!"
 fi
