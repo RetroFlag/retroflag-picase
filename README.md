@@ -8,6 +8,10 @@ Support for RetroPie, RecalBox and BATOCERA
 Installeres for the GPi case\
 Support for RetroPie and BATOCERA
 
+**Section 3**\
+Uninstall for all systems and all cases\
+This means uninstaller for NesPi+, MegaPi, SuperPi and GPi cases\
+for RetroPie, RecalBox and BATOCERA
 
 ## Section 1. RetroFlag Pi-Case+ Safe Shutdown
 
@@ -93,3 +97,14 @@ All metadata is always saved
 
 **`wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/install_gpi_batocera.sh" | bash`**
 
+## Section 3. Uninstallers
+
+#### Example for RetroPie
+Type in the terminal, type the one-line command below (case sensitive):
+
+**`wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/uninstall_all.sh" | sudo bash`**
+
+#### Example for RecalBox and BATOCERA
+Type in the terminal, type the one-line command below (case sensitive):
+
+**`wget -O - "https://raw.githubusercontent.com/crcerror/retroflag-picase/master/uninstall_all.sh" | bash`**
