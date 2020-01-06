@@ -38,7 +38,7 @@ else
 # by cyperghost 23/11/19
 #
      
-if [[ $1 == stop ]]; then
+if [[ \$1 == stop ]]; then
     batocera-es-swissknife --emukill
 fi
 _EOF_
