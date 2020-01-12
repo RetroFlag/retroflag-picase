@@ -5,7 +5,7 @@ Installers for NesPi+, MegaPi, SuperPi cases\
 Support for RetroPie, RecalBox and BATOCERA
 
 **Section 2**\
-Installeres for the GPi case\
+Installer for the GPi case\
 Support for RetroPie and BATOCERA
 
 **Section 3**\
@@ -21,9 +21,9 @@ for RetroPie, RecalBox and BATOCERA
 
 #### **Multi Switch Shutdown**
 with advanced shutdown features for more natural behaviour:
-1. If you press restart if emulator is currently running, then you will be kicked back to ES main menu
-2. If you press restart in ES main screen, ES will be restartet (no reboot!), good for quick saving metadata or internal saves.
-3. If you press power-off then Raspberry will shutdown
+* If you press restart if emulator is currently running, then you will be kicked back to ES main menu
+* If you press restart in ES main screen, ES will be restartet (no reboot!), good for quick saving metadata or internal saves.
+* If you press power-off then Raspberry will shutdown
 
 All metadata is always saved
 
