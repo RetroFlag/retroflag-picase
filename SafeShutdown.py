@@ -16,7 +16,7 @@ power.on()
 #functions that handle button events
 def when_pressed():
   led.blink(.2,.2)
-  os.system("sudo killall emulationstation && sleep 5s && sudo shutdown -h now")
+  os.system("sudo killall emulationstation && sleep 5s && sudo reboot")
 def when_released():
   led.on()
 def reboot(): 
