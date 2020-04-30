@@ -20,7 +20,7 @@ def init():
 def poweroff():
 	while True:
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-		os.system("shutdown -h now")
+		os.system("shutdown -r now")
 
 if __name__ == "__main__":
 	#initialize GPIO settings
