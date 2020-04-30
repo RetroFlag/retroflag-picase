@@ -11,7 +11,7 @@ power.on()
 
 #functions that handle button events
 def when_pressed():
-  os.system("sudo killall emulationstation && sleep 5s && sudo shutdown -h now")
+  os.system("sudo killall emulationstation && sleep 5s && sudo reboot")
   
 btn = Button(powerPin, hold_time=hold)
 btn.when_pressed = when_pressed
