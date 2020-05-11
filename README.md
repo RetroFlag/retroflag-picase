@@ -5,7 +5,7 @@ For RetroPie:
 
 1. Make sure internet connected.
 2. Make sure keyboard connected.
-3. Press F4 enter terminal.
+3. Press F4 to enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install_gpi.sh" | sudo bash
