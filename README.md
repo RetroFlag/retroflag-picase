@@ -3,17 +3,17 @@ Turn switch "SAFE SHUTDOWN" to ON.
 
 For RetroPie:
 
-1. Make sure internet connected.
-2. Make sure keyboard connected.
-3. Press F4 enter terminal.
+1. Make sure you have a working internet connection.
+2. Make sure you have a keyboard connected.
+3. Press F4 to enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install_gpi.sh" | sudo bash
 
 --------------------
 For Recalbox
-1. Make sure internet connected.
-2. Make sure keyboard connected.
+1. Make sure you have a working internet connection.
+2. Make sure you have a keyboard connected.
 3. Press F4 first. And then press ALT-F2 enter termial.
 4. User: root Password: recalboxroot
 5. In the terminal, type the one-line command below(Case sensitive):
