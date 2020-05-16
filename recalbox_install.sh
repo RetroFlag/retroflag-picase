@@ -34,7 +34,7 @@ script=/opt/RetroFlag/SafeShutdown.py
 
 if [ -e $script ];
 	then
-		echo "Script SafeShutdown.py already exists. Doing nothing."
+		wget --no-check-certificate -O  $script "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_SafeShutdown.py"
 	else
 		wget --no-check-certificate -O  $script "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_SafeShutdown.py"
 fi
