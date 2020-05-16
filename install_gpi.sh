@@ -30,7 +30,7 @@ script=SafeShutdown.py
 
 if [ -e $script ];
 	then
-		echo "Script SafeShutdown.py already exists. Doing nothing."
+		wget --no-check-certificate -O  $script "$filewebsite""/SafeShutdown_gpi.py"
 	else
 		wget --no-check-certificate -O  $script "$filewebsite""/SafeShutdown_gpi.py"
 fi
