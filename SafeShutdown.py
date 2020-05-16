@@ -16,11 +16,17 @@ power.on()
 #functions that handle button events
 def when_pressed():
   led.blink(.2,.2)
-  os.system("sudo killall emulationstation && sleep 5s && sudo reboot")
+  os.system("sudo killall emulationstation")
+  os.system("sudo killall emulationstatio") #RetroPie 4.6
+  os.system("sleep 5s")
+  os.system("sudo shutdown -r now")
 def when_released():
   led.on()
 def reboot(): 
-  os.system("sudo killall emulationstation && sleep 5s && sudo reboot")
+  os.system("sudo killall emulationstation")
+  os.system("sudo killall emulationstatio") #RetroPie 4.6
+  os.system("sleep 5s")
+  os.system("sudo reboot")
   
 btn = Button(powerPin, hold_time=hold)
 rebootBtn = Button(resetPin)
