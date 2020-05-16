@@ -36,7 +36,7 @@ script=SafeShutdown.py
 
 if [ -e $script ];
 	then
-		echo "Script SafeShutdown.py already exists. Doing nothing."
+		wget -O $script "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/SafeShutdown.py"
 	else
 		wget "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/SafeShutdown.py"
 fi
