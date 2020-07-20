@@ -22,7 +22,7 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/r
 
 
 
-# retroflag-picase (nespi+, superpi, megapi case)
+# retroflag-picase (nespi+, superpi, megapi,nespi4 case)
 RetroFlag Pi-Case Safe Shutdown
 
 Turn switch "SAFE SHUTDOWN" to ON.
