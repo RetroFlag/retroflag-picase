@@ -14,7 +14,7 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/i
 For Recalbox
 1. Make sure internet connected.
 2. Make sure keyboard connected.
-3. Press F4 first. And then press ALT-F2 enter termial.
+3. Press F4 first. And then press ALT-F2 enter terminal.
 4. User: root Password: recalboxroot
 5. In the terminal, type the one-line command below(Case sensitive):
 
@@ -42,12 +42,22 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/i
 Example for RecalBox:
 1. Make sure internet connected.
 2. Make sure keyboard connected.
-3. Press F4 first. And then press ALT-F2 enter termial.
+3. Press F4 first. And then press ALT-F2 enter terminal.
 4. User: root Password: recalboxroot
 5. In the terminal, type the one-line command below(Case sensitive):
 
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash
 
+--------------------
+
+Example for batocera:
+1. Make sure internet connected.
+2. Make sure keyboard connected.
+3. Enter terminal. How to enter terminal: https://wiki.batocera.org/access_the_batocera_via_ssh
+4. User: root Password: linux
+5. In the terminal, type the one-line command below(Case sensitive):
+
+wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/batocera_install.sh" | bash
 
 --------------------
 
