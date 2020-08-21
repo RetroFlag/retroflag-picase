@@ -1,61 +1,54 @@
 #!/bin/bash
 
+SourcePath=https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master
 
-#Step 1) Check if root--------------------------------------
+#Check if root--------------------------------------
 if [[ $EUID -ne 0 ]]; then
    echo "Please execute script as root." 
    exit 1
 fi
 #-----------------------------------------------------------
 
-#Step 2) enable UART----------------------------------------
-cd /boot/
-File=config.txt
-if grep -q "enable_uart=1" "$File";
+#RetroFlag pw io ;2:in ;3:in ;4:in ;14:out 1----------------------------------------
+File=/boot/config.txt
+wget -O  "/boot/overlays/RetroFlag_pw_io.dtbo" "$SourcePath/RetroFlag_pw_io.dtbo"
+if grep -q "RetroFlag_pw_io" "$File";
 	then
-		echo "UART already enabled. Doing nothing."
+		sed -i '/RetroFlag_pw_io/c dtoverlay=RetroFlag_pw_io.dtbo' $File 
+		echo "PW IO fix."
+	else
+		echo "dtoverlay=RetroFlag_pw_io.dtbo" >> $File
+		echo "PW IO enabled."
+fi
+if grep -q "enable_uart" "$File";
+	then
+		sed -i '/enable_uart/c enable_uart=1' $File 
+		echo "UART fix."
 	else
 		echo "enable_uart=1" >> $File
 		echo "UART enabled."
 fi
+
 #-----------------------------------------------------------
 
-#Step 3) Update repository----------------------------------
-sudo apt-get update -y
-#-----------------------------------------------------------
+#Download Python script-----------------------------
+sudo mkdir "/opt/RetroFlag"
+script=/opt/RetroFlag/SafeShutdown.py
+wget -O $script "$SourcePath/SafeShutdown.py"
 
-#Step 4) Install gpiozero module----------------------------
-sudo apt-get install -y python3-gpiozero
-#-----------------------------------------------------------
+#Enable Python script to run on start up------------
+RC=/etc/rc.local
 
-#Step 5) Download Python script-----------------------------
-cd /opt/
-sudo mkdir RetroFlag
-cd /opt/RetroFlag
-script=SafeShutdown.py
-
-if [ -e $script ];
+if grep -q "sudo python $script &" "$RC";
 	then
-		wget -O $script "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/SafeShutdown.py"
+		echo "File $RC already configured. Doing nothing."
 	else
-		wget "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/SafeShutdown.py"
-fi
-#-----------------------------------------------------------
-
-#Step 6) Enable Python script to run on start up------------
-cd /etc/
-RC=rc.local
-
-if grep -q "sudo python3 \/opt\/RetroFlag\/SafeShutdown.py \&" "$RC";
-	then
-		echo "File /etc/rc.local already configured. Doing nothing."
-	else
-		sed -i -e "s/^exit 0/sudo python3 \/opt\/RetroFlag\/SafeShutdown.py \&\n&/g" "$RC"
+		sed -i -e "s/^exit 0/sudo python \/opt\/RetroFlag\/SafeShutdown.py \&\n&/g" "$RC"
 		echo "File /etc/rc.local configured."
 fi
 #-----------------------------------------------------------
 
-#Step 7) Reboot to apply changes----------------------------
+#Reboot to apply changes----------------------------
 echo "RetroFlag Pi Case installation done. Will now reboot after 3 seconds."
 sleep 3
 sudo reboot

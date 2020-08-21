@@ -24,7 +24,7 @@ def poweroff():
 	while True:
 		self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		os.system("batocera-es-swissknife --emukill")
-		os.system("shutdown -h now")
+		os.system("shutdown -r now")
 
 #blinks the LED to signal button being pushed
 def ledBlink():

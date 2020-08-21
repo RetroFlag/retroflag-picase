@@ -22,6 +22,7 @@ def init():
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
 	while True:
+		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
 		os.system("shutdown -r now")
 
@@ -29,6 +30,7 @@ def poweroff():
 def ledBlink():
 	while True:
 		GPIO.output(ledPin, GPIO.HIGH)
+		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
 		start = time.time()
 		while GPIO.input(powerPin) == GPIO.LOW:
@@ -40,6 +42,7 @@ def ledBlink():
 #resets the pi
 def reset():
 	while True:
+		#self.assertEqual(GPIO.input(resetPin), GPIO.LOW)
 		GPIO.wait_for_edge(resetPin, GPIO.FALLING)
 		os.system("shutdown -r now")
 
