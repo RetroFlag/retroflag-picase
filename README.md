@@ -1,7 +1,7 @@
 # retroflag-picase
 
 **Section 1**\
-Installers for NesPi+, MegaPi, SuperPi cases\
+Installers for NesPi+, MegaPi, SuperPi cases and (since 2020/08/22) **NESPI4**
 Support for RetroPie, RecalBox and BATOCERA
 
 **Section 2**\
