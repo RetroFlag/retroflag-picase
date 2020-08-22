@@ -32,7 +32,7 @@ if grep -q "^enable_uart=1" "/boot/config.txt"; then
 	echo "UART already enabled... Proceed!"
 elif grep -q "^#enable_uart=1" "/boot/config.txt"; then
 	echo "UART is disabled. Enabling now!"
-	echo "Activating UART - your CPU is could be throttled by this"
+	echo "Activating UART - your CPU could be throttled by this"
 	sed -i -e "s|^#\senable_uart=1|enable_uart=1|" "/boot/config.txt" &> /dev/null
 else
 	echo "UART is disabled."
@@ -74,6 +74,19 @@ if grep -q "python $script &" "$autostartscript";
 		chmod +x $autostartscript
 		echo "Executable $autostartscript configured."
 fi
+
+#-----------------------------------------------------------
+
+#Step 6) enable overlay file for proper powercut ---------------
+cd /boot/
+File=config.txt
+if ! grep -q "^[ ]*dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" "$File"; then
+    echo "Enable overlay file"
+    echo "# Overlay setup for proper powercut, needed for Retroflag cases" >> "$File"
+    echo "dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" >> "$File"
+fi
+
+#-----------------------------------------------------------
 
 #Step 5) Reboot to apply changes----------------------------
 echo "RetroFlag Pi Case Switch installation done. Will now reboot after 3 seconds."
