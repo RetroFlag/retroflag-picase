@@ -24,6 +24,13 @@ echo "Welcome to the Safe Shutdown installer..."
 echo "Batocera '$version' detected..."
 sleep 2
 
+if ! grep -q "^dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" "/boot/config.txt"; then
+    mount -o remount, rw /boot
+    echo "Activating overlay file...."
+    echo "# Overlay setup for proper powercut, needed for Retroflag cases" >> "/boot/config.txt"
+    echo "dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" >> "/boot/config.txt"
+fi
+
 if [[ ${version//[^[:digit:]]/} -gt 524 ]]; then
     echo "Activate RETROFLAG in batocera.conf"
     batocera-settings set system.power.switch RETROFLAG_ADV
@@ -47,7 +54,6 @@ sleep 2
 
 echo
 echo "Activating UART ... now"
-mount -o remount, rw /boot
 batocera-settings /boot/config.txt activate enable_uart
 
 echo "Activate RETROFLAG in batocera.conf"
