@@ -14,15 +14,20 @@ def init():
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(powerPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	GPIO.setup(resetPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-	GPIO.setup(ledPin, GPIO.OUT)
-	GPIO.setup(powerenPin, GPIO.OUT)
+	GPIO.setup(ledPin, GPIO.OUT, initial=GPIO.HIGH)
+	GPIO.output(ledPin, GPIO.HIGH)
+	GPIO.setup(powerenPin, GPIO.OUT, initial=GPIO.HIGH)
 	GPIO.output(powerenPin, GPIO.HIGH)
 	GPIO.setwarnings(False)
 
 #waits for user to hold button up to 1 second before issuing poweroff command
 def poweroff():
 	while True:
-		self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
+		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
+		#GPIO.wait_for_edge(powerPin, GPIO.FALLING)
+		start = time.time()
+		while GPIO.input(powerPin) == GPIO.HIGH:
+			time.sleep(0.5)
 		os.system("batocera-es-swissknife --emukill")
 		os.system("shutdown -r now")
 
@@ -30,8 +35,11 @@ def poweroff():
 def ledBlink():
 	while True:
 		GPIO.output(ledPin, GPIO.HIGH)
-		self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
+		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
+		#GPIO.wait_for_edge(powerPin, GPIO.FALLING)
 		start = time.time()
+		while GPIO.input(powerPin) == GPIO.HIGH:
+			time.sleep(0.5)
 		while GPIO.input(powerPin) == GPIO.LOW:
 			GPIO.output(ledPin, GPIO.LOW)
 			time.sleep(0.2)
@@ -41,7 +49,11 @@ def ledBlink():
 #resets the pi
 def reset():
 	while True:
-		self.assertEqual(GPIO.input(resetPin), GPIO.LOW)
+		#self.assertEqual(GPIO.input(resetPin), GPIO.LOW)
+		#GPIO.wait_for_edge(resetPin, GPIO.FALLING)
+		start = time.time()
+		while GPIO.input(resetPin) == GPIO.HIGH:
+			time.sleep(0.5)
 		os.system("batocera-es-swissknife --emukill")
 		os.system("shutdown -r now")
 
