@@ -39,10 +39,22 @@ else
 fi
 
 echo "Try to disable UART"
-if grep -q "enable_uart=1" "$BOOTFILE"; then
+if grep -q "[ ]*enable_uart=1" "$BOOTFILE"; then
     sed -i -e "s|^\senable_uart=1|#enable_uart=1|" "$BOOTFILE" &> /dev/null
     [[ $? -eq 0 ]] && echo "UART disabled" || echo "Can't disable UART"
 else
     echo "UART seems to be disabled now!"
+    echo "'$BOOTFILE':Please check manually!"
+fi
+
+echo "Try to disable overlay file"
+if grep -q "[ ]*dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" "$BOOTFILE"; then
+    sed -i -e "s|^\sdtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1|#dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1|" "$BOOTFILE" &> /dev/null
+    [[ $? -eq 0 ]] && echo "overlay disabled" || echo "Can't find overlay file"
+elif grep -q "[ ]*dtoverlay=RetroFlag_pw_io.dtbo" $BOOTFILE; then
+    sed -i -e "s|^\sdtoverlay=RetroFlag_pw_io.dtbo|#dtoverlay=RetroFlag_pw_io.dtbo|" "$BOOTFILE" &> /dev/null
+    [[ $? -eq 0 ]] && echo "overlay disabled" || echo "Can't find overlay file"
+else
+    echo "Overlay file not found"
     echo "'$BOOTFILE':Please check manually!"
 fi
