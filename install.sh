@@ -62,7 +62,18 @@ if grep -q "sudo python3 \/opt\/RetroFlag\/SafeShutdown.py \&" "$RC";
 fi
 #-----------------------------------------------------------
 
-#Step 7) Reboot to apply changes----------------------------
+#Step 7) enable overlay file for powercut ---------------
+cd /boot/
+File=config.txt
+if ! grep -q "^dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" $File; then
+    echo "Enable overlay file"
+    echo "# Overlay setup for proper powercut, needed for Retroflag cases" >> "$File"
+    echo "dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" >> "$File"
+fi
+
+#-----------------------------------------------------------
+
+#Step 8) Reboot to apply changes----------------------------
 echo "RetroFlag Pi Case installation done. Will now reboot after 3 seconds."
 sleep 3
 sudo reboot
