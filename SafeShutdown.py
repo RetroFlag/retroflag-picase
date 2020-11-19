@@ -25,6 +25,7 @@ def poweroff():
 	while True:
 		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
+		os.system("sudo pkill -15 'retroarch'")
 		os.system("sudo killall emulationstation")
 		os.system("sudo killall emulationstatio") #RetroPie 4.6
 		os.system("sudo sleep 5s")
@@ -48,6 +49,7 @@ def reset():
 	while True:
 		#self.assertEqual(GPIO.input(resetPin), GPIO.LOW)
 		GPIO.wait_for_edge(resetPin, GPIO.FALLING)
+		os.system("sudo pkill -15 'retroarch'")
 		os.system("sudo killall emulationstation")
 		os.system("sudo killall emulationstatio") #RetroPie 4.6
 		os.system("sudo sleep 5s")

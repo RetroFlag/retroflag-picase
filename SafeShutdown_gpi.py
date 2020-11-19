@@ -11,6 +11,7 @@ power.on()
 
 #functions that handle button events
 def when_pressed():
+  os.system("sudo pkill -15 'retroarch'")
   os.system("sudo killall emulationstation")
   os.system("sudo killall emulationstatio") #RetroPie 4.6
   os.system("sleep 5s")
