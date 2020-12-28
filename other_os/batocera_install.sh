@@ -7,16 +7,16 @@
 # Press Reset during ES to reload ES
 # Press Reset in running emulator will kick you back to ES
 
-version=$(grep -o '^[^ ]*' $HOME/data.version)
+version=$(awk '{ $0=$(NF-1)$NF; gsub(/[^0-9]/,""); print }' $HOME/data.version)
 git_url="https://raw.githubusercontent.com/crcerror/retroflag-picase/master/other_os/batocera_safeshutdown.py"
 file_dest="/usr/bin/rpi-retroflag-SafeShutdown"
 
 # Minimum version of BATOCERA is 5.24 because here batocera-es-swissknife is integrated
 # so all versions less then 5.24 will be dropped from further install
-if [[ ${version//[^[:digit:]]/} -lt 524 ]]; then
+if [[ $version -lt 201911092359 ]]; then
     echo "Error! Please try annother installer"
     echo "Your current version of Batocera is '$version'"
-    echo "You need at least 5.24 ...."
+    echo "You need at least 5.24 from 2019/11/09 ...."
     exit
 fi 
 
@@ -31,9 +31,12 @@ if ! grep -q "^dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" "/boot/co
     echo "dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" >> "/boot/config.txt"
 fi
 
-if [[ ${version//[^[:digit:]]/} -gt 524 ]]; then
+if [[ $version -gt 201911092359 ]]; then
     echo "Activate RETROFLAG in batocera.conf"
-    batocera-settings set system.power.switch RETROFLAG_ADV
+    # This is due some changes during batocera-dev (idk what happens here)
+    batocera-settings set system.power.switch RETROFLAG_ADV #bato 29 and lower
+    batocera-settings-set system.power.switch RETROFLAG_ADV #bato 30??
+    batocera-settings -w system.power.switch -v RETROFLAG_ADV #bato 30 dev!
     sleep 2
     echo; echo
     echo "Rebooting in 5 seconds...."
