@@ -22,7 +22,7 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/r
 
 
 
-# retroflag-picase (nespi+, superpi, megapi,nespi4 case)
+# retroflag-picase (nespi+, superpi, megapi, nespi4 case)
 RetroFlag Pi-Case Safe Shutdown
 
 Turn switch "SAFE SHUTDOWN" to ON.
@@ -58,6 +58,16 @@ Example for batocera:
 5. In the terminal, type the one-line command below(Case sensitive):
 
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/batocera_install.sh" | bash
+
+--------------------
+
+Example for Ubuntu:
+1. Make sure internet connected.
+2. Make sure keyboard connected.
+3. Enter terminal.
+4. In the terminal, type the one-line command below(Case sensitive):
+
+wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/ubuntu_install.sh" | bash
 
 --------------------
 
