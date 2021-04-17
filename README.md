@@ -59,15 +59,20 @@ Example for batocera:
 
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/batocera_install.sh" | bash
 
+# retroflag-nespi4
+RetroFlag Nespi4 Case Safe Shutdown
+
+Turn switch "SAFE SHUTDOWN" to ON.
+
 --------------------
 
-Example for Ubuntu:
+Example for Ubuntu 20.10+:
 1. Make sure internet connected.
 2. Make sure keyboard connected.
 3. Enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/ubuntu_install.sh" | bash
+wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/ubuntu_install.sh" | sudo bash
 
 --------------------
 

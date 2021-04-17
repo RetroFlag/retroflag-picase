@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SourcePath=https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master
+[ -z $SourcePath ] && SourcePath=https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master
+
 
 #Check if root--------------------------------------
 if [[ $EUID -ne 0 ]]; then
@@ -11,7 +12,7 @@ fi
 
 #RetroFlag pw io ;2:in ;3:in ;4:in ;14:out 1----------------------------------------
 File=/boot/firmware/config.txt
-wget -O  "/boot/overlays/RetroFlag_pw_io.dtbo" "$SourcePath/RetroFlag_pw_io.dtbo"
+wget -O  "/boot/firmware/overlays/RetroFlag_pw_io.dtbo" "$SourcePath/RetroFlag_pw_io.dtbo"
 if grep -q "RetroFlag_pw_io" "$File";
 	then
 		sed -i '/RetroFlag_pw_io/c dtoverlay=RetroFlag_pw_io.dtbo' $File 
@@ -51,12 +52,3 @@ echo "RetroFlag Pi Case installation done. Will now reboot after 3 seconds."
 sleep 3
 sudo reboot
 #-----------------------------------------------------------
-
-
-
-
-
-
-
-
-
