@@ -72,7 +72,7 @@ Example for Ubuntu 20.10+:
 3. Enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/ubuntu_install.sh" | sudo bash
+echo "wget -O - "https://raw.githubusercontent.com/rfocosi/retroflag-picase/master/ubuntu_install.sh" | SourcePath="https://raw.githubusercontent.com/rfocosi/retroflag-picase/master" bash" | sudo bash
 
 --------------------
 
