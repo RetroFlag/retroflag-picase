@@ -1,0 +1,11 @@
+[Unit]
+Description=Nespi4 Case Safe Shutdown
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /opt/RetroFlag/SafeShutdown.py
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
+Alias=safe-shutdown.service
