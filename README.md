@@ -3,7 +3,7 @@
 * [GPi Case (GPi Case only)](#gpi-case-gpi-case-only)
     * [For RetroPie](#for-retropie)
     * [For Recalbox](#for-recalbox)
-* [Pi Case (nespi+, superpi, megapi,nespi4 case)](#Pi-Case-(nespi+,-superpi,-megapi,nespi4-case))
+* [Pi Case (nespi+, superpi, megapi,nespi4 case)](#pi-case)
     * [Example for RetroPie](#example-for-retropie)
     * [Example for RecalBox](#example-for-recalbox)
     * [Example for batocera](#example-for-batocera)
@@ -45,7 +45,8 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/r
 -------------------- 
 
 
-# Pi Case (nespi+, superpi, megapi,nespi4 case)
+# Pi Case 
+## (nespi+, superpi, megapi,nespi4 case)
 RetroFlag Pi-Case Safe Shutdown
 
 ### Turn switch "SAFE SHUTDOWN" to ON.
