@@ -27,6 +27,7 @@ def poweroff():
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
 		os.system("sudo killall emulationstation")
 		os.system("sudo killall emulationstatio") #RetroPie 4.6
+		os.system("sudo chvt 7")
 		os.system("sudo sleep 5s")
 		os.system("sudo shutdown -r now")
 
@@ -50,6 +51,7 @@ def reset():
 		GPIO.wait_for_edge(resetPin, GPIO.FALLING)
 		os.system("sudo killall emulationstation")
 		os.system("sudo killall emulationstatio") #RetroPie 4.6
+		os.system("sudo chvt 7")
 		os.system("sudo sleep 5s")
 		os.system("sudo shutdown -r now")
 
