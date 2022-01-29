@@ -29,7 +29,7 @@ The RetroFlag GPiCase 2 CM4 safe shutdown script will automatically switch betwe
 3. Press F4 enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install_gpi.sh" | sudo bash
+    `wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install_gpi.sh" | sudo bash`
 
 
 ### For Recalbox
@@ -39,7 +39,7 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/i
 4. User: root Password: recalboxroot
 5. In the terminal, type the one-line command below(Case sensitive):
 
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install_gpi.sh" | bash
+    `wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install_gpi.sh" | bash`
 
   
 -------------------- 
@@ -58,7 +58,7 @@ RetroFlag Pi-Case Safe Shutdown
 3. Press F4 enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install.sh" | sudo bash
+    `wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install.sh" | sudo bash`
 
 
 
@@ -69,7 +69,7 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/i
 4. User: root Password: recalboxroot
 5. In the terminal, type the one-line command below(Case sensitive):
 
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash
+    `wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash`
 
 
 
@@ -80,7 +80,7 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/r
 4. User: root Password: linux
 5. In the terminal, type the one-line command below(Case sensitive):
 
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/batocera_install.sh" | bash
+    `wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/batocera_install.sh" | bash`
 
 
 
