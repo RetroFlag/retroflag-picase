@@ -74,7 +74,7 @@ Example for Ubuntu 20.10+:
 
 echo "wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/ubuntu_install.sh" | bash" | sudo bash
 
--------------------
+--------------------
 
 Example for lakkatv:
 https://github.com/marcelonovaes/lakka_nespi_power
