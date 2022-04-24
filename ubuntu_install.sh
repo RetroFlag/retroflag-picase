@@ -8,7 +8,6 @@ WGET_EXEC=$( which wget )
 
 [ -z $SourcePath ] && SourcePath=https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master
 
-
 #Check if root--------------------------------------
 if [[ $EUID -ne 0 ]]; then
    echo
@@ -47,7 +46,7 @@ File=$DEV_ROOT/boot/firmware/config.txt
 $WGET_EXEC -q -O  "$DEV_ROOT/boot/firmware/overlays/RetroFlag_pw_io.dtbo" "$SourcePath/RetroFlag_pw_io.dtbo"
 if grep -q "RetroFlag_pw_io" "$File";
 	then
-		sed -i '/RetroFlag_pw_io/c dtoverlay=RetroFlag_pw_io.dtbo' $File 
+		sed -i '/RetroFlag_pw_io/c dtoverlay=RetroFlag_pw_io.dtbo' $File
 		echo "PW IO fix."
 	else
 		echo "dtoverlay=RetroFlag_pw_io.dtbo" >> $File
@@ -56,7 +55,7 @@ if grep -q "RetroFlag_pw_io" "$File";
 fi
 if grep -q "enable_uart" "$File";
 	then
-		sed -i '/enable_uart/c enable_uart=1' $File 
+		sed -i '/enable_uart/c enable_uart=1' $File
 		echo "UART fix."
 	else
 		echo "enable_uart=1" >> $File
