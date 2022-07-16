@@ -21,6 +21,9 @@ echo "Try to remove autostart-feature"
 if grep -q "^sudo python3 $SCRIPTDIR" "/etc/rc.local"; then
     sed -i -e "s|^sudo python3.*||g" "/etc/rc.local"
     [[ $? -eq 0 ]] && echo "Autostart disabled" || echo "Autostart nothing changed"
+elif grep -q "sudo python $SCRIPTDIR" "/etc/rc.local"; then
+    sed -i -e "s|sudo python.*||g" "/etc/rc.local"
+    [[ $? -eq 0 ]] && echo "Autostart disabled" || echo "Autostart nothing changed"
 elif [[ -f /etc/init.d/S99RetroFlag ]]; then
     ## RECALBOX
     mount -o remount, rw /boot
