@@ -84,5 +84,15 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/b
 
 
 
+### Example for blast16:
+1. Make sure internet connected.
+2. Make sure keyboard connected.
+3. Enter terminal. Press Start, then go to `Options > Tools > Command Line`
+4. In the terminal, type the one-line command below(Case sensitive):
+
+wget --no-check-certificate -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/blast16_install.sh" | sudo bash
+
+
+
 ### Example for lakkatv:
 https://github.com/marcelonovaes/lakka_nespi_power
