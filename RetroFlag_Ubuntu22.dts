@@ -10,8 +10,8 @@
                startup_state = "inactive";
                function = "input";
             }; // pin
-            pin@p4 { function = "output";  termination = "pull_down"; startup_state = "active"; }; // ON
-            pin@p14 { function = "output";  termination = "pull_down"; startup_state = "active"; }; // LED
+            pin@p4 { function = "output";  termination = "pull_up"; startup_state = "active"; }; // ON
+            pin@p14 { function = "output";  termination = "pull_up"; startup_state = "active"; }; // LED
          }; // pin_config
       };
    };
