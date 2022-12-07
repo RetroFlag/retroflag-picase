@@ -1,7 +1,7 @@
 Firmware overlay for Ubuntu 22+
 ===============================
 
-This overlay will turn on GPIO 4 and 14 at startup.
+This overlay will turn on GPIO 4 at startup.
 
 To compile, execute the command:
 dtc -I dts -O dtb -o RetroFlag_Ubuntu22.dtbo RetroFlag_Ubuntu22.dts 

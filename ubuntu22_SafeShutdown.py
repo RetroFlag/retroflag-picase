@@ -7,13 +7,9 @@ import subprocess
 powerBtnPin = 3
 resetBtnPin = 2
 ledPin = 14
-powerPin = 4
 
 led = LED(ledPin)
 led.on()
-
-power = LED(powerPin)
-power.on()
 
 #functions that handle button events
 def poweroff():

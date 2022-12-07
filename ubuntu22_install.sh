@@ -50,6 +50,7 @@ if grep -q "RetroFlag_Ubuntu22" "$File";
 		echo "PW IO fix."
 	else
 		echo "dtoverlay=RetroFlag_Ubuntu22.dtbo" >> $File
+		echo "dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1"
 		echo "PW IO enabled."
 fi
 if grep -q "enable_uart" "$File";
