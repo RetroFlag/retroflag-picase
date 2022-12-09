@@ -6,7 +6,7 @@ CURL_EXEC=$( which curl )
 PYTHON_EXEC=$( which python | which python3 )
 WGET_EXEC=$( which wget )
 
-[ -z $SourcePath ] && SourcePath=https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master
+[ -z $SourcePath ] && SourcePath=https://raw.githubusercontent.com/rfocosi/retroflag-picase/master
 
 #Check if root--------------------------------------
 if [[ $EUID -ne 0 ]]; then

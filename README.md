@@ -52,7 +52,7 @@ RetroFlag Pi-Case Safe Shutdown
 ### Turn switch "SAFE SHUTDOWN" to ON.
 
 
-### Example for RetroPie:
+### RetroPie:
 1. Make sure internet connected.
 2. Make sure keyboard connected.
 3. Press F4 enter terminal.
@@ -61,8 +61,7 @@ RetroFlag Pi-Case Safe Shutdown
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install.sh" | sudo bash
 
 
-
-### Example for RecalBox:
+### RecalBox:
 1. Make sure internet connected.
 2. Make sure keyboard connected.
 3. Press F4 first. And then press ALT-F2 enter terminal.
@@ -72,8 +71,7 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/i
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/recalbox_install.sh" | bash
 
 
-
-### Example for batocera:
+### Batocera:
 1. Make sure internet connected.
 2. Make sure keyboard connected.
 3. Enter terminal. How to enter terminal: https://wiki.batocera.org/access_the_batocera_via_ssh
@@ -82,20 +80,17 @@ wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/r
 
 wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/batocera_install.sh" | bash
 
-# retroflag-nespi4 Ubuntu
-RetroFlag Nespi4 Case Safe Shutdown
-
-Turn switch "SAFE SHUTDOWN" to ON.
-
---------------------
-
-Example for Ubuntu 20.10+:
+### Ubuntu
 1. Make sure internet connected.
 2. Make sure keyboard connected.
 3. Enter terminal.
 4. In the terminal, type the one-line command below(Case sensitive):
 
-echo "wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/ubuntu_install.sh" | bash" | sudo bash
+Ubuntu 20.10 to 21.10:
+wget -O - "https://raw.githubusercontent.com/rfocosi/retroflag-picase/master/ubuntu_install.sh" | sudo bash
+
+Ubuntu 22.04+:
+wget -O - "https://raw.githubusercontent.com/rfocosi/retroflag-picase/master/ubuntu22_install.sh" | sudo bash
 
 --------------------
 

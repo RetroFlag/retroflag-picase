@@ -6,7 +6,7 @@ CURL_EXEC=$( which curl )
 PYTHON_EXEC=$( which python | which python3 )
 WGET_EXEC=$( which wget )
 
-[ -z $SourcePath ] && SourcePath=https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master
+[ -z $SourcePath ] && SourcePath=https://raw.githubusercontent.com/rfocosi/retroflag-picase/master
 
 #Check if root--------------------------------------
 if [[ $EUID -ne 0 ]]; then
@@ -44,13 +44,13 @@ fi
 [[ ! -z "$DEV_ROOT" ]] && mkdir -p $DEV_ROOT/boot/firmware/overlays
 File=$DEV_ROOT/boot/firmware/config.txt
 $WGET_EXEC -q -O  "$DEV_ROOT/boot/firmware/overlays/RetroFlag_Ubuntu22.dtbo" "$SourcePath/RetroFlag_Ubuntu22.dtbo"
-if grep -q "RetroFlag_Ubuntu22" "$File";
+if grep -q "RetroFlag_" "$File";
 	then
-		sed -i '/RetroFlag_Ubuntu22/c dtoverlay=RetroFlag_Ubuntu22.dtbo' $File
+		sed -i '/RetroFlag_/c dtoverlay=RetroFlag_Ubuntu22.dtbo' $File
 		echo "PW IO fix."
 	else
 		echo "dtoverlay=RetroFlag_Ubuntu22.dtbo" >> $File
-		echo "dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1"
+		echo "dtoverlay=gpio-poweroff,gpiopin=4,active_low=1,input=1" >> $File
 		echo "PW IO enabled."
 fi
 if grep -q "enable_uart" "$File";
