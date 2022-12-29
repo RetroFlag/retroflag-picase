@@ -1,0 +1,17 @@
+/dts-v1/;
+
+/ {
+   videocore {
+      pins_4b { // Pi4 Model B
+         pin_config {
+            pin@default {
+               polarity = "active_high";
+               termination = "pull_down";
+               startup_state = "inactive";
+               function = "input";
+            }; // pin
+            pin@p4 { function = "output"; termination = "pull_down"; polarity = "active_low"; startup_state = "active"; }; // ON
+         }; // pin_config
+      };
+   };
+};
