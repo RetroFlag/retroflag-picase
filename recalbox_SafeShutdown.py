@@ -24,7 +24,7 @@ def poweroff():
 	while True:
 		#self.assertEqual(GPIO.input(powerPin), GPIO.LOW)
 		GPIO.wait_for_edge(powerPin, GPIO.FALLING)
-		os.system("shutdown -r now")
+		os.system("shutdown -h now") # -r reboot , -h halt 
 
 #blinks the LED to signal button being pushed
 def ledBlink():
